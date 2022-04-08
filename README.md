@@ -1,15 +1,14 @@
-# SoftwareArchitectureCLassApplication
-This is sandbox code to show proof of concept usages of some principles taught in University of Cincinnati's Software Architecture Class.
+# Requirements:
+We decided the default requirements were sufficient for the project, as we don't know what else we'd add to them.
 
-This code base will be used for several assignments, but it's value comes from having several libraries in play, as well as some example usages of concepts of singletons, static initializers, journaling, and automation APIs
+Requirement 1 (REQUIRED) – All core Observer services should be in libcore 
 
-Additionally, this also shows how to setup a Basic Action to verify a merge request compiles or not.
+Requirement 2 (REQUIRED) – Application specific portions of Observer should be in appropriate libraries (i.e. not libcore) 
 
+Requirement 3 (REQUIRED) – Need to have a High level Session object. So application specific observers are not registered on CoreSession. 
 
-This software to show off some workflows with using Java and automation APIs depends upon a Java Provider to present.  Otherwise a build error will occur.
+Requirement 4 (Required) – Implement a second use case for observers to show that core functionality is isolated, but can be extensible. 
 
-To Resovle this install a Java JDK (such as Adopt OpenJDK), and then provide the proper header includes and library location.  It is being proposed as future enhancment to make the jvm library be loaded dyanmically.
+# Initial Estimate:
 
-Or optionally comment out the code in PerformJavaAutomationWorkflow, and turn off building the JavaLoader library.
-
-[Journaling Module Design](documentation_markdown/journaling.md)
+We believe that this project will take around 30 hours of work.
