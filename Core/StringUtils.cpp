@@ -15,3 +15,8 @@ bool startsWith(std::string mainStr, std::string toMatch)
 	else
 		return false;
 }
+
+bool endsWith(std::string str, std::string suffix)
+{
+	return str.size() >= suffix.size() && 0 == str.compare(str.size() - suffix.size(), suffix.size(), suffix);
+}

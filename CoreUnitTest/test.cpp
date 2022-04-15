@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "..\Core\StringUtils.h"
 #include "..\Core\Observer.h"
+#include "../AppPartOps/DelMeBadPattern.h"
 
 TEST(StringUtilsTests, startsWithNegativeTest)
 {
@@ -24,9 +25,55 @@ TEST(StringUtilsTests, startsWithPostiveTest)
 
 }
 
+//core observer tests
 TEST(ObserverTests, createObserverTest) {
 	testing::internal::CaptureStdout();
 	Observer o = Observer(CoreSession::GetInstance(), IObserver::EventTypes(4));
 	std::string output = testing::internal::GetCapturedStdout();
 	bool val = startsWith(output, "Hi, I'm the Observer");
+
+	EXPECT_TRUE(val);
 }
+
+TEST(ObserverTests, updateObserverTest) {
+	Observer o = Observer(CoreSession::GetInstance(), IObserver::EventTypes(4));
+	testing::internal::CaptureStdout();
+	o.Update("This is a new message.");
+	std::string output = testing::internal::GetCapturedStdout();
+	bool val = endsWith(output, "This is a new message.\n");
+
+	EXPECT_TRUE(val);
+}
+
+TEST(ObserverTests, updateObserverWithDataTest) {
+	Observer o = Observer(CoreSession::GetInstance(), IObserver::EventTypes(4));
+	testing::internal::CaptureStdout();
+	PartOpsNotifierData* data = new PartOpsNotifierData();
+	data->partName = "Part";
+	data->guid = 123;
+	o.Update("This is a new message.", data);
+	std::string output = testing::internal::GetCapturedStdout();
+	bool val = (output.find("Part") && output.find("123"));
+
+	EXPECT_TRUE(val);
+}
+
+TEST(ObserverTests, updateOnEventTypeTest) {
+	Observer o = Observer(CoreSession::GetInstance(), IObserver::EventTypes(4));
+	bool val = o.UpdateOnEventType(IObserver::EventTypes(0));
+
+	EXPECT_FALSE(val);
+
+	val = o.UpdateOnEventType(IObserver::EventTypes(1));
+
+	EXPECT_FALSE(val);
+
+	val = o.UpdateOnEventType(IObserver::EventTypes(2));
+
+	EXPECT_FALSE(val);
+
+	val = o.UpdateOnEventType(IObserver::EventTypes(4));
+
+	EXPECT_TRUE(val);
+}
+//end core observer tests
