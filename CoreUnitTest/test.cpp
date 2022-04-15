@@ -77,3 +77,61 @@ TEST(ObserverTests, updateOnEventTypeTest) {
 	EXPECT_TRUE(val);
 }
 //end core observer tests
+
+// drawing observer tests
+
+/*
+TEST(DrawingObserverTests, updateOnEventTypeTest) {
+	DrawingObserver o = DrawingObserver(Session::GetInstance(), IDrawingObserver::EventTypes(4));
+	bool val = o.UpdateOnEventType(IDrawingObserver::EventTypes(0));
+
+	EXPECT_FALSE(val);
+
+	val = o.UpdateOnEventType(IDrawingObserver::EventTypes(1));
+
+	EXPECT_FALSE(val);
+
+	val = o.UpdateOnEventType(IDrawingObserver::EventTypes(2));
+
+	EXPECT_FALSE(val);
+
+	val = o.UpdateOnEventType(IDrawingObserver::EventTypes(4));
+
+	EXPECT_TRUE(val);
+}
+
+TEST(DrawingObserverTests, createDrawingObserverTest) {
+	testing::internal::CaptureStdout();
+	DrawingObserver o = DrawingObserver(Session::GetInstance(), IDrawingObserver::EventTypes(4));
+	std::string output = testing::internal::GetCapturedStdout();
+	bool val = startsWith(output, "Hi, I'm the DrawingObserver");
+
+	EXPECT_TRUE(val);
+}
+
+TEST(DrawingObserverTests, updateDrawingObserverTest) {
+	DrawingObserver o = DrawingObserver(Session::GetInstance(), IDrawingObserver::EventTypes(4));
+	testing::internal::CaptureStdout();
+	o.Update("This is a new message.");
+	std::string output = testing::internal::GetCapturedStdout();
+	bool val = endsWith(output, "This is a new message.\n");
+
+	EXPECT_TRUE(val);
+}
+
+TEST(DrawingObserverTests, updateDrawingObserverWithDataTest) {
+	DrawingObserver o = DrawingObserver(Session::GetInstance(), IDrawingObserver::EventTypes(4));
+	testing::internal::CaptureStdout();
+	PartOpsNotifierData* data = new PartOpsNotifierData();
+	data->partName = "Part";
+	data->guid = 123;
+	o.Update("This is a new message.", data);
+	std::string output = testing::internal::GetCapturedStdout();
+	bool val = (output.find("Part") && output.find("123"));
+
+	EXPECT_TRUE(val);
+}
+
+/*
+
+// end drawing observer tests
