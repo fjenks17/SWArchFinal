@@ -12,3 +12,5 @@ Requirement 4 (Required) – Implement a second use case for observers to show t
 # Initial Estimate:
 
 We believe that this project will take around 30 hours of work.
+
+# [Design Diagram](../main/DesignDiagram.md)
