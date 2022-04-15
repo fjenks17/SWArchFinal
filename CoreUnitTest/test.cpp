@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "..\Core\StringUtils.h"
+#include "..\Core\Observer.h"
 
 TEST(StringUtilsTests, startsWithNegativeTest)
 {
@@ -21,4 +22,11 @@ TEST(StringUtilsTests, startsWithPostiveTest)
 
 	EXPECT_TRUE(val);
 
+}
+
+TEST(ObserverTests, createObserverTest) {
+	testing::internal::CaptureStdout();
+	Observer o = Observer(CoreSession::GetInstance(), IObserver::EventTypes(4));
+	std::string output = testing::internal::GetCapturedStdout();
+	bool val = startsWith(output, "Hi, I'm the Observer");
 }
