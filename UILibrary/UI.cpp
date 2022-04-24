@@ -11,6 +11,7 @@
 #include "..\Core\CoreUtils.h"
 #include "..\FeatureOpsUI\BlockBuilderUI.h"
 #include "..\AppLibrary\Journaling_BlockBuilder.h"
+#include "..\AppsCore\AppsCore.h"
 
 UI::UI()
 {
@@ -20,6 +21,8 @@ UI::UI()
 void UI::Init()
 {
 	CoreSession::GetInstance().SetupDefaultObservers();
+
+	AppSession::GetInstance().SetupDefaultObservers();
 
 	CoreSession::GetInstance().CreateMessage("Hello World! :D");
 	CoreSession::GetInstance().CreateMessage("The weather is hot today! :p");

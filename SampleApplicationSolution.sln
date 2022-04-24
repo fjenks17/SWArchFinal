@@ -4,10 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MainExe", "BadLibrariesExe\BadLibrariesExe.vcxproj", "{A5E51A70-6311-444E-9A50-9595661C5C2D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C8E80CC-32C4-4A81-8662-363E48B9AD1E} = {5C8E80CC-32C4-4A81-8662-363E48B9AD1E}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Core\Core.vcxproj", "{5DC81D63-EC79-4D3C-BE0F-7B36FD069376}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UILibrary", "UILibrary\UILibrary.vcxproj", "{1155E21A-D324-4653-BB87-68046CDEE6DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C8E80CC-32C4-4A81-8662-363E48B9AD1E} = {5C8E80CC-32C4-4A81-8662-363E48B9AD1E}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AppFeatureOps", "AppLibrary\AppLibrary.vcxproj", "{E654B7EA-F264-421D-8056-6F3C2CC7D47F}"
 EndProject
@@ -32,6 +38,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jniAutomationLibrary", "jniAutomationLibrary\jniAutomationLibrary.vcxproj", "{0F8FBB2E-8833-482B-9FC5-353010B15D9C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AppsCore", "AppsCore\AppsCore.vcxproj", "{5C8E80CC-32C4-4A81-8662-363E48B9AD1E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5DC81D63-EC79-4D3C-BE0F-7B36FD069376} = {5DC81D63-EC79-4D3C-BE0F-7B36FD069376}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JavaAutomationBinding", "JavaAutomationBinding\JavaAutomationBinding.vcxproj", "{80FDD8C0-C3BF-4200-8F4E-BBDC6EA3A558}"
 EndProject

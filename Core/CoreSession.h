@@ -35,10 +35,12 @@ class CORE_API CoreSession : ISubject
 
         void SetupDefaultObservers();
 
+protected:
+    CoreSession();
+
 private:
     std::list<IObserver*> m_listObserver;
     std::string m_message;
-    CoreSession();
     Observer* m_observerForSavePart; 
     Observer* m_observerForClosePart;
     Observer* m_observerForOpenPart;

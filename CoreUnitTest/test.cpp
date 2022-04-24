@@ -132,6 +132,6 @@ TEST(DrawingObserverTests, updateDrawingObserverWithDataTest) {
 	EXPECT_TRUE(val);
 }
 
-/*
+*/
 
 // end drawing observer tests
