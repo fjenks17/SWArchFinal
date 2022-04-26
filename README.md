@@ -16,8 +16,5 @@ We believe that this project will take around 30 hours of work.
 ### [Design Diagram](../main/DesignDiagram.md)
 
 # Conclusions
-//TODO
 
-Discuss if you feel you accomplished the requirements.
-Also if you give me permission to add your body of work to the GitHub project (entirely optional). 
-Discuss any further extensions you feel the functionality needs.
+We do not feel that we have fully accomplished what we set out to do. However, we believe that we have made significant progress towards meeting our requirements and with a bit more time we would be able to finish what we've started. On top of fulfilling the current requirements, we would plan to rework the original observer even further to improve extensibility even more. 
