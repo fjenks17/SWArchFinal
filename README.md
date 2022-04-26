@@ -15,4 +15,4 @@ We believe that this project will take around 30 hours of work.
 
 ### [Design Diagram](../main/DesignDiagram.md)
 
-## [Conclusions](../main/Conclusions.md)
+### [Conclusions](../main/Conclusions.md)
