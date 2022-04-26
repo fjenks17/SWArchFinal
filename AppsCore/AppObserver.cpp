@@ -1,8 +1,10 @@
 #include "AppsCore.h"
-#include "..\AppPartOps\DelMeBadPattern.h"
 #include <iostream>
+#include "..\AppPartOps\DelMeBadPattern.h"
 
-AppObserver::AppObserver(AppSession& appSession, EventTypes eventType) : appSession_(appSession), m_eventType(eventType) {
+int AppObserver::static_number_ = 0;
+
+AppObserver::AppObserver(AppSession& appSession, EventTypes eventType) : appSession_(appSession), m_eventType(eventType), Observer(appSession_, eventType) {
     this->appSession_.Attach(this);
     std::cout << "Hi, I'm the AppObserver \"" << ++AppObserver::static_number_ << "\".\n";
     this->number_ = AppObserver::static_number_;

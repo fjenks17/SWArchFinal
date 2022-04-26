@@ -13,33 +13,16 @@
 #endif
 #include <list>
 
+class AppObserver;
+
 // This class is exported from the dll
 class APPSCORE_API CAppsCore {
 public:
 	CAppsCore(void);
 };
 
-class APPSCORE_API AppObserver : public Observer {
-public:
 
-    AppObserver(AppSession& appSession, EventTypes eventType);
-    ~AppObserver() override;
-    void Update(const std::string& message_from_subject) override;
-    void Update(const std::string& message_from_subject, void* data) override;
-    void RemoveMeFromTheList();
-    void PrintInfo();
-    void PrintInfo(void* data);
-    bool UpdateOnEventType(EventTypes eventType);
-
-private:
-    std::string message_from_subject_;
-    AppSession& appSession_;
-    static int static_number_;
-    int number_;
-    EventTypes m_eventType;
-};
-
-class APPSCORE_API AppSession : CoreSession
+class APPSCORE_API AppSession : public CoreSession
 {
 public:
     static AppSession& GetInstance();
@@ -78,6 +61,27 @@ private:
 
 
 };
+
+class APPSCORE_API AppObserver : public Observer {
+public:
+
+    AppObserver(AppSession& appSession, EventTypes eventType) ;
+    ~AppObserver() override;
+    void Update(const std::string& message_from_subject) override;
+    void Update(const std::string& message_from_subject, void* data) override;
+    void RemoveMeFromTheList();
+    void PrintInfo();
+    void PrintInfo(void* data);
+    bool UpdateOnEventType(EventTypes eventType);
+
+private:
+    std::string message_from_subject_;
+    AppSession& appSession_;
+    static int static_number_;
+    int number_;
+    EventTypes m_eventType;
+};
+
 
 extern APPSCORE_API int nAppsCore;
 

@@ -45,6 +45,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JavaAutomationBinding", "JavaAutomationBinding\JavaAutomationBinding.vcxproj", "{80FDD8C0-C3BF-4200-8F4E-BBDC6EA3A558}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CoreUnitTest", "CoreUnitTest\CoreUnitTest.vcxproj", "{177D1C37-0DF6-4D73-BEC7-B3F1EDAAFB73}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5C8E80CC-32C4-4A81-8662-363E48B9AD1E} = {5C8E80CC-32C4-4A81-8662-363E48B9AD1E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

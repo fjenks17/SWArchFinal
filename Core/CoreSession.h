@@ -35,8 +35,9 @@ class CORE_API CoreSession : ISubject
 
         void SetupDefaultObservers();
 
+        CoreSession();
+
 protected:
-    CoreSession();
 
 private:
     std::list<IObserver*> m_listObserver;
