@@ -2,6 +2,7 @@
 #include "..\Core\StringUtils.h"
 #include "..\Core\Observer.h"
 #include "../AppPartOps/DelMeBadPattern.h"
+#include "../AppsCore/AppObserver.cpp"
 
 TEST(StringUtilsTests, startsWithNegativeTest)
 {
@@ -78,39 +79,40 @@ TEST(ObserverTests, updateOnEventTypeTest) {
 }
 //end core observer tests
 
-// drawing observer tests
+// app observer tests
 
-/*
-TEST(DrawingObserverTests, updateOnEventTypeTest) {
-	DrawingObserver o = DrawingObserver(Session::GetInstance(), IDrawingObserver::EventTypes(4));
-	bool val = o.UpdateOnEventType(IDrawingObserver::EventTypes(0));
 
-	EXPECT_FALSE(val);
-
-	val = o.UpdateOnEventType(IDrawingObserver::EventTypes(1));
+TEST(AppObserverTests, updateOnEventTypeTest) {
+	AppObserver o = AppObserver(AppSession::GetInstance(), IObserver::EventTypes(4));
+	bool val = o.UpdateOnEventType(IObserver::EventTypes(0));
 
 	EXPECT_FALSE(val);
 
-	val = o.UpdateOnEventType(IDrawingObserver::EventTypes(2));
+	val = o.UpdateOnEventType(IObserver::EventTypes(1));
 
 	EXPECT_FALSE(val);
 
-	val = o.UpdateOnEventType(IDrawingObserver::EventTypes(4));
+	val = o.UpdateOnEventType(IObserver::EventTypes(2));
+
+	EXPECT_FALSE(val);
+
+	val = o.UpdateOnEventType(IObserver::EventTypes(4));
 
 	EXPECT_TRUE(val);
 }
 
-TEST(DrawingObserverTests, createDrawingObserverTest) {
+
+TEST(AppObserverTests, createAppObserverTest) {
 	testing::internal::CaptureStdout();
-	DrawingObserver o = DrawingObserver(Session::GetInstance(), IDrawingObserver::EventTypes(4));
+	AppObserver o = AppObserver(AppSession::GetInstance(), IObserver::EventTypes(4));
 	std::string output = testing::internal::GetCapturedStdout();
-	bool val = startsWith(output, "Hi, I'm the DrawingObserver");
+	bool val = startsWith(output, "Hi, I'm the AppObserver");
 
 	EXPECT_TRUE(val);
 }
 
-TEST(DrawingObserverTests, updateDrawingObserverTest) {
-	DrawingObserver o = DrawingObserver(Session::GetInstance(), IDrawingObserver::EventTypes(4));
+TEST(AppObserverTests, updateAppObserverTest) {
+	AppObserver o = AppObserver(AppSession::GetInstance(), IObserver::EventTypes(4));
 	testing::internal::CaptureStdout();
 	o.Update("This is a new message.");
 	std::string output = testing::internal::GetCapturedStdout();
@@ -119,8 +121,8 @@ TEST(DrawingObserverTests, updateDrawingObserverTest) {
 	EXPECT_TRUE(val);
 }
 
-TEST(DrawingObserverTests, updateDrawingObserverWithDataTest) {
-	DrawingObserver o = DrawingObserver(Session::GetInstance(), IDrawingObserver::EventTypes(4));
+TEST(AppObserverTests, updateAppObserverWithDataTest) {
+	AppObserver o = AppObserver(AppSession::GetInstance(), IObserver::EventTypes(4));
 	testing::internal::CaptureStdout();
 	PartOpsNotifierData* data = new PartOpsNotifierData();
 	data->partName = "Part";
@@ -132,6 +134,4 @@ TEST(DrawingObserverTests, updateDrawingObserverWithDataTest) {
 	EXPECT_TRUE(val);
 }
 
-*/
-
-// end drawing observer tests
+// end app observer tests
