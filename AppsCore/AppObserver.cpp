@@ -4,7 +4,7 @@
 
 int AppObserver::static_number_ = 0;
 
-AppObserver::AppObserver(AppSession& appSession, EventTypes eventType) : appSession_(appSession), m_eventType(eventType), Observer(appSession_, eventType) {
+AppObserver::AppObserver(AppSession& appSession, EventTypes eventType) : appSession_(appSession), m_eventType(eventType), Observer(CoreSession::GetInstance(), eventType) {
     this->appSession_.Attach(this);
     std::cout << "Hi, I'm the AppObserver \"" << ++AppObserver::static_number_ << "\".\n";
     this->number_ = AppObserver::static_number_;

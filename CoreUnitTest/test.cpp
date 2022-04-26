@@ -106,7 +106,7 @@ TEST(AppObserverTests, createAppObserverTest) {
 	testing::internal::CaptureStdout();
 	AppObserver o = AppObserver(AppSession::GetInstance(), IObserver::EventTypes(4));
 	std::string output = testing::internal::GetCapturedStdout();
-	bool val = startsWith(output, "Hi, I'm the AppObserver");
+	bool val = output.find("Hi, I'm the AppObserver");
 
 	EXPECT_TRUE(val);
 }
