@@ -2,7 +2,7 @@
 #include "..\Core\StringUtils.h"
 #include "..\Core\Observer.h"
 #include "../AppPartOps/DelMeBadPattern.h"
-#include "../AppsCore/AppObserver.cpp"
+#include "../AppsCore/AppsCore.h"
 
 TEST(StringUtilsTests, startsWithNegativeTest)
 {
